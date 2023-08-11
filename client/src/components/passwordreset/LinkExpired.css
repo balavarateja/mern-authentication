@@ -1,0 +1,159 @@
+.LinkExpired {
+  width: 100%;
+  height: 100%;
+}
+.LELeft {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  height: 100%;
+  width: 50%;
+}
+.LERight {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 50%;
+}
+.LEText {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+}
+
+.LET1 {
+  position: relative;
+  top: 50px;
+  left: 100px;
+}
+.T0 {
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+}
+.LET2 {
+  position: absolute;
+  width: 488px;
+  height: 102px;
+  top: 100px;
+  left: 5px;
+}
+.T1 {
+  position: relative;
+  top: 10%;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+  color: #3d3d3d;
+}
+.LET3 {
+  position: absolute;
+  width: 488px;
+  height: 102px;
+  top: 130px;
+  left: 5px;
+}
+.T2 {
+  position: relative;
+  top: 10%;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+  color: #3d3d3d;
+}
+.LET4 {
+  position: absolute;
+  width: 488px;
+  height: 102px;
+  top: 160px;
+  left: 5px;
+}
+.T3 {
+  position: relative;
+  top: 10%;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+  color: #3d3d3d;
+}
+.LET5 {
+  position: absolute;
+  width: 488px;
+  height: 102px;
+  top: 190px;
+  left: 5px;
+}
+.T4 {
+  position: relative;
+  top: 10%;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+  color: #3d3d3d;
+}
+.LET6 {
+  position: absolute;
+  width: 488px;
+  height: 102px;
+  top: 220px;
+  left: 5px;
+}
+.T5 {
+  position: relative;
+  top: 10%;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+  color: #3d3d3d;
+}
+.LEB1 {
+  display: flex;
+  position: relative;
+  top: 125px;
+  left: 80px;
+  border: none;
+}
+.LEEL {
+  display: flex;
+  position: relative;
+  top: 115px;
+  left: 40px;
+  border: none;
+  background: #ffff;
+  color: #543fd3;
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: 400;
+
+  text-align: left;
+}
+.LEB2 {
+  display: flex;
+  position: relative;
+  top: 135px;
+  left: 125px;
+  border: none;
+}
+.LEEI {
+  display: flex;
+  position: relative;
+  top: 105px;
+  left: 60px;
+  border: none;
+  background: #ffff;
+  color: #543fd3;
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+}

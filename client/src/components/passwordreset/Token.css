@@ -1,0 +1,167 @@
+.Token {
+  width: 100%;
+  height: 100%;
+}
+.NCLeft {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  height: 100%;
+  width: 50%;
+}
+.NCRight {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 50%;
+}
+.NCText {
+  position: relative;
+  width: 100%;
+  height: 40%;
+}
+.NCT1 {
+  position: absolute;
+  font-family: Inter;
+  font-size: 40px;
+  font-weight: 600;
+  top: 50px;
+  left: 180px;
+}
+.NCT2 {
+  position: absolute;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  top: 75px;
+  left: 100px;
+}
+.NCT3 {
+  position: absolute;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  top: 105px;
+  left: 100px;
+}
+.NCT4 {
+  position: absolute;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  top: 135px;
+  left: 100px;
+}
+.NCT5 {
+  position: absolute;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  top: 165px;
+  left: 100px;
+}
+.NCT6 {
+  position: absolute;
+  font-family: Inter;
+  font-size: 28px;
+  font-weight: 400;
+  top: 195px;
+  left: 100px;
+}
+/* .NCForm {
+  width: 100%;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+/* .InputSU {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  width: 580px;
+  padding: 15px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #cacaca;
+} */
+.NPInput {
+  padding: 15px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 10px 5px 10px 5px;
+  border: 1px solid gray;
+  border-radius: 100px;
+  color: #cacaca;
+  top: 0%;
+  width: 480px;
+}
+.NPREInput {
+  padding: 15px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 10px 5px 10px 5px;
+  border: 1px solid gray;
+  border-radius: 100px;
+  color: #cacaca;
+  width: 480px;
+}
+.InputFormNC {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: auto;
+}
+.TB {
+  top: 300px;
+  left: 20px;
+}
+.TBS {
+  top: 700px;
+  right: 380px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  border: none;
+  color: #141212;
+  border: none;
+  position: absolute;
+  width: 245px;
+  height: 73px;
+  background: #d2cbd2;
+  border-radius: 50px;
+}
+.TCancel {
+  top: 155px;
+  left: 100px;
+  border: none;
+}
+.TCB {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 40px;
+  border: none;
+  text-align: center;
+  color: #141212;
+  position: absolute;
+  background-color: #fff;
+  margin-top: 5px;
+  left: 400px;
+  top: 790px;
+}

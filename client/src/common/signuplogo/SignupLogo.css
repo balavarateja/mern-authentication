@@ -1,0 +1,40 @@
+.h1t {
+  position: absolute;
+  width: 270px;
+  top: 120px;
+  left: 200px;
+  height: 77px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+
+  color: #000000;
+}
+
+.h2t {
+  position: absolute;
+  width: 170px;
+  height: 35px;
+  top: 150px;
+  left: 500px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+
+  color: #000000;
+}
+
+.Vector1 {
+  top: 140px;
+  left: 580px;
+  position: absolute;
+}
+.Vector2 {
+  top: 130px;
+  left: 700px;
+  position: absolute;
+}

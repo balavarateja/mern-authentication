@@ -1,0 +1,47 @@
+.H3t {
+  position: relative;
+  width: 270px;
+  height: 77px;
+  top: 300px;
+  left: 200px;
+  top: 50px;
+  font-family: 'Inter';
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0%;
+}
+
+.H4t {
+  position: absolute;
+  width: 170px;
+  height: 35px;
+  top: 100px;
+  left: 470px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  margin-bottom: 0%;
+  color: #000000;
+}
+h1 {
+  color: rgb(26, 24, 26);
+  text-align: center;
+  font-size: 70px;
+}
+h2 {
+  font-size: 30px;
+}
+.Vector3 {
+  top: 90px;
+  left: 570px;
+  position: absolute;
+  margin-bottom: 0%;
+}
+.Vector4 {
+  top: 85px;
+  left: 670px;
+  position: absolute;
+  margin-bottom: 0%;
+}

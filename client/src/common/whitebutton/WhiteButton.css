@@ -1,0 +1,13 @@
+.white-button {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 44px;
+  border: none;
+
+  text-align: center;
+
+  color: #141212;
+  position: absolute;
+}

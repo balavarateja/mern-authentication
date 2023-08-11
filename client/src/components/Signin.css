@@ -1,0 +1,241 @@
+.SignIn {
+  max-width: 100%;
+  max-height: 100%;
+}
+body {
+  max-height: 100%;
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.SILeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+}
+.SIRight {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 50%;
+}
+
+.InputSI {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  width: 400px;
+  padding: 15px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #cacaca;
+}
+
+.LoginEmailInput {
+  padding: 15px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 10px 5px 10px 5px;
+  border: 1px solid gray;
+  border-radius: 100px;
+  color: #141212;
+}
+
+.InputPassword {
+  display: flex;
+  border: hidden;
+  margin-right: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  border-radius: 100px;
+  color: #141212;
+  width: 450px;
+  padding: 15px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  border: 1px solid gray;
+}
+
+.SUBI {
+  top: 630px;
+  right: 200px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  border: none;
+  color: #141212;
+  border: none;
+  position: absolute;
+  width: 245px;
+  height: 73px;
+  background: #d2cbd2;
+  border-radius: 50px;
+}
+.SIB {
+  top: 320px;
+  left: 20px;
+}
+input {
+  color: #141212;
+}
+.SIBS {
+  top: 670px;
+  right: 380px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 48px;
+  text-align: center;
+  border: none;
+  color: #141212;
+  border: none;
+  position: absolute;
+  width: 245px;
+  height: 73px;
+  background: #d2cbd2;
+  border-radius: 50px;
+}
+.BtnF {
+  display: flex;
+  position: relative;
+  top: 105px;
+  left: 80px;
+  border: none;
+}
+.BtnFP {
+  /* position: absolute;
+  top: 600px;
+  width: 650px;
+  left: 270px;
+  border: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px; */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 40px;
+  border: none;
+  text-align: center;
+  color: #141212;
+  position: absolute;
+  background-color: #fff;
+  margin-top: 5px;
+}
+
+.InputForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 45%;
+  color: #141212;
+}
+.SILogo {
+  display: flex;
+  position: absolute;
+  top: 190px;
+}
+.SIF {
+  margin-top: auto;
+}
+.checkbox {
+  color: #141212;
+}
+.RM {
+  font-size: 14px;
+  margin-top: 5%;
+  position: relative;
+  color: #141212;
+}
+.B {
+  border: hidden;
+  position: relative;
+  /* width: 330px;
+  height: 55px; */
+  width: 370px;
+  height: 30px;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding: 15px;
+  margin: 0;
+  border: 1px solid gray;
+  border-radius: 100px;
+  color: #cacaca;
+}
+
+.icon {
+  /* position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: hidden;
+  outline: none;
+  font-size: 18px;
+  text-indent: 2px;
+  padding: 5px; */
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: hidden;
+  outline: none;
+  font-size: 18px;
+  text-indent: 2px;
+  padding: 5px;
+  margin-right: 10px;
+}
+.input.InputPassword {
+  display: flex;
+  position: absolute;
+  color: #141212;
+}
+.InputPassword {
+  display: flex;
+  border: hidden;
+  margin-right: 0;
+
+  border-radius: 100px;
+  color: #141212;
+}
+
+.B input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: hidden;
+  outline: none;
+  /* font-size: 18px;
+  text-indent: 2px; */
+  padding: 5px;
+  color: #141212;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}

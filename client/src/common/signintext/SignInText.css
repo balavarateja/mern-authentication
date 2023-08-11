@@ -1,0 +1,46 @@
+.imageText_5 {
+  position: absolute;
+  top: 370px;
+  right: 20%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+
+  color: #423636;
+}
+.imageText_6 {
+  position: absolute;
+  top: 420px;
+  right: 150px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+  text-align: center;
+
+  color: #423636;
+}
+.imageText_7 {
+  position: absolute;
+  top: 495px;
+  right: 100px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  font-weight: 34px;
+}
+.imageText_8 {
+  position: absolute;
+  top: 530px;
+  right: 250px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  font-weight: 34px;
+}
