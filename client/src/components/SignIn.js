@@ -12,15 +12,69 @@ import InputAdornment from '@mui/material/InputAdornment'
 import IconButton from '@mui/material/IconButton'
 
 const SignIn = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+
+  // const handleSignInId = (e) => {
+  //   setEmail(e.target.value)
+  // }
+  // const handleSignInPassword = (e) => {
+  //   setPassword(e.target.value)
+  // }
   const [visible, setVisible] = useState(false)
 
-  const handleSignInId = (e) => {
-    setEmail(e.target.value)
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  })
+  const [formError, setFormError] = useState({})
+
+  const onChangeHandler = (event) => {
+    console.log(event)
+    if (event.target.name === 'languages') {
+      let copy = { ...formData }
+
+      if (event.target.checked) {
+        copy.languages.push(event.target.value)
+      } else {
+        copy.languages = copy.languages.filter(
+          (el) => el !== event.target.value
+        )
+      }
+
+      setFormData(copy)
+    } else {
+      setFormData(() => ({
+        ...formData,
+        [event.target.name]: event.target.value,
+      }))
+    }
   }
-  const handleSignInPassword = (e) => {
-    setPassword(e.target.value)
+
+  const validateForm = () => {
+    let err = {}
+    if (formData.email === '') {
+      err.email = 'Please enter Email'
+    } else {
+      let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+      if (!regex.test(formData.email)) {
+        err.email = 'Please enter valid Email Id'
+      }
+    }
+    if (formData.password === '') {
+      err.password = 'Please enter password'
+    } else {
+      let regex =
+        /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/
+      if (!regex.test(formData.password)) {
+        err.email =
+          'Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!'
+      }
+    }
+
+    setFormError({ ...err })
+
+    return Object.keys(err).length < 1
   }
 
   const EndAdorment = (visible, setVisible) => {
@@ -49,23 +103,52 @@ const SignIn = () => {
     event.preventDefault()
   }
 
-  const handleSubmitSI = (e) => {
-    e.preventDefault()
-    // const data = res.body
-    axios
-      .post('http://localhost:8002/signin', {
-        email: email,
-        password: password,
+  // const handleSubmitSI = (e) => {
+  //   e.preventDefault()
+  //   const data = res.body
+  //   axios
+  //     .post('http://localhost:8002/signin', {
+  //       email: email,
+  //       password: password,
+  //     })
+  //     .then((response) => {
+  //       console.log(response.data)
+  //       alert('Successfully LoggedIn')
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //       console.log(err.response)
+  //       alert(err.response.data.error.message)
+  //     })
+  // }
+
+  const onSubmitHandlerSI = (event) => {
+    event.preventDefault()
+    console.log('Form Data:', formData)
+    let isValid = validateForm()
+
+    if (isValid) {
+      alert('Submitted')
+      //API call to server
+      fetch('http://localhost:8002/signin', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
       })
-      .then((response) => {
-        console.log(response.data)
-        alert('Successfully LoggedIn')
-      })
-      .catch((err) => {
-        console.log(err)
-        console.log(err.response)
-        alert(err.response.data.error.message)
-      })
+        .then((response) => {
+          alert('Successfully Signed In')
+          // navigate('/success')
+        })
+        .catch((err) => {
+          alert(err.response.data.error.message)
+        })
+    } else {
+      alert('In-Valid Form')
+    }
+    console.log(isValid)
   }
 
   return (
@@ -75,28 +158,31 @@ const SignIn = () => {
           <LogoText></LogoText>
         </div>
         <div className="SIF">
-          <form onSubmit={handleSubmitSI} className="InputForm">
+          <form onSubmit={onSubmitHandlerSI} className="InputForm">
             <div className="InputSI">
               <input
                 className="LoginEmailInput"
                 type="text"
                 placeholder="User Id / Email Id"
-                value={email}
-                onChange={handleSignInId}
+                name="email"
+                onChange={onChangeHandler}
+                value={formData.email}
               />
+              <span className="non-valid">{formError.email}</span>
               <div className="B">
                 <input
                   className="InputPassword "
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
-                  value={password}
-                  onChange={handleSignInPassword}
-                  styles={{ border: 'hiddden' }}
+                  name="password"
+                  onChange={onChangeHandler}
+                  value={formData.password}
                 />
                 <IconButton className="Icon" styles={{}}>
                   <EndAdorment />
                 </IconButton>
               </div>
+              <span className="non-valid">{formError.password}</span>
 
               <div className="RM">
                 <input type="checkbox" />

@@ -107,15 +107,13 @@ input {
   border: none;
   color: #141212;
   border: none;
-  position: absolute;
   width: 245px;
   height: 73px;
   background: #d2cbd2;
   border-radius: 50px;
+  margin-left: 50px;
 }
 .BtnF {
-  display: flex;
-  position: relative;
   top: 105px;
   left: 80px;
   border: none;
@@ -141,6 +139,7 @@ input {
   position: absolute;
   background-color: #fff;
   margin-top: 5px;
+  margin-left: 80px;
 }
 
 .InputForm {

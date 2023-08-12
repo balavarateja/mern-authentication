@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import '../components/ForgotPassword.css'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import RightStar from '../common/rightstar/RightStar'
 import Forgottext from '../common/forgottext/Forgottext'
 import SignupText from '../common/signuptext/SignupText'
@@ -14,7 +14,7 @@ const ForgotPassword = () => {
   const handleFPEmailId = (e) => {
     setEmail(e.target.value)
   }
-
+  const navigate = useNavigate('')
   const handleSubmitFP = (e) => {
     e.preventDefault()
     axios
@@ -28,6 +28,7 @@ const ForgotPassword = () => {
       .then((response) => {
         console.log(response.data)
         alert('Successfully Link sent')
+        navigate('/token')
       })
       .catch((err) => {
         console.log(err)

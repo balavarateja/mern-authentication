@@ -7,65 +7,101 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 
 const NewCredentials = () => {
-  const [password, setPassword] = useState({
-    one: '',
-    two: '',
+  const [formData, setFormData] = useState({
+    newPassword: '',
+    reenterpassword: '',
   })
-  const [isVerifying, setIsVerifying] = useState(false)
-  const [isValid, setIsValid] = useState(false)
-  const [searchParams] = useSearchParams()
-  const token = searchParams.get('token')
-  const id = searchParams.get('id')
+  const [formError, setFormError] = useState({})
 
-  const navigate = useNavigate()
+  const onChangeHandler = (event) => {
+    console.log(event)
+    if (event.target.name === 'languages') {
+      let copy = { ...formData }
 
-  // useEffect(() => {
-  //   isValidToken()
-  // }, [])
+      if (event.target.checked) {
+        copy.languages.push(event.target.value)
+      } else {
+        copy.languages = copy.languages.filter(
+          (el) => el !== event.target.value
+        )
+      }
 
-  // const isValidToken = async () => {
-  //   const { error, valid } = await verifyPasswordResetToken(token, id)
-  //   setIsVerifying(false)
-  //   if (error) {
-  //     navigate('/auth/reset-password', { replace: true })
-  //     return updateNotification('error', error)
-  //   }
+      setFormData(copy)
+    } else {
+      setFormData(() => ({
+        ...formData,
+        [event.target.name]: event.target.value,
+      }))
+    }
+  }
 
-  //   if (!valid) {
-  //     setIsValid(false)
-  //     return navigate('/auth/reset-password', { replace: true })
-  //   }
+  const validateForm = () => {
+    let err = {}
+    if (
+      formData.newPasswordpassword === '' ||
+      formData.reenterpassword === ''
+    ) {
+      err.newPassword = 'Password and Confirm Password required!'
+    } else {
+      if (formData.newPassword !== formData.reenterpassword) {
+        err.reenterpassword = 'Password not matched!'
+      } else {
+        if (formData.newPassword.length < 6) {
+          err.newPassword = 'Password should greater than 6 characters!'
+        }
+        let regex =
+          /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/
+        if (!regex.test(formData.newPassword)) {
+          err.password = 'password not valid!'
+        }
+      }
+    }
 
-  //   setIsValid(true)
+    setFormError({ ...err })
+
+    return Object.keys(err).length < 1
+  }
+
+  // const handleChange = ({ target }) => {
+  //   const { name, value } = target
+  //   setPassword({ ...password, [name]: value })
+  // }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+
+  //   const { error, message } = await resetPassword({
+  //     newPassword: password.one,
+  //     userId: id,
+  //     token,
+  //   })
   // }
 
-  const handleChange = ({ target }) => {
-    const { name, value } = target
-    setPassword({ ...password, [name]: value })
-  }
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  // const resetPassword = async (passwordInfo) => {
+  //   try {
+  //     const { data } = await axios.post(
+  //       'http://localhost:8002/api/user/reset-password',
+  //       passwordInfo
+  //     )
+  //     return data
+  //   } catch (error) {
+  //     const { response } = error
+  //     if (response?.data) return response.data
 
-    const { error, message } = await resetPassword({
-      newPassword: password.one,
-      userId: id,
-      token,
-    })
-  }
+  //     return { error: error.message || error }
+  //   }
+  // }
+  const onSubmitHandlerNC = (event) => {
+    event.preventDefault()
+    console.log('Form Data:', formData)
+    let isValid = validateForm()
 
-  const resetPassword = async (passwordInfo) => {
-    try {
-      const { data } = await axios.post(
-        'http://localhost:8002/api/user/reset-password',
-        passwordInfo
-      )
-      return data
-    } catch (error) {
-      const { response } = error
-      if (response?.data) return response.data
-
-      return { error: error.message || error }
+    if (isValid) {
+      alert('Submitted')
+      //API call to server
+    } else {
+      alert('In-Valid Form')
     }
+    console.log(isValid)
   }
 
   return (
@@ -82,30 +118,31 @@ const NewCredentials = () => {
           <h6 className="NCT6">special character</h6>
         </div>
         <div className="NCForm">
-          <form className="InputFormNC">
+          <form className="InputFormNC" onSubmit={onSubmitHandlerNC}>
             <div className="NewPassword">
               <input
-                className="NPInput"
+                className="NewPInput"
                 type="password"
                 placeholder="New password"
-                onChange={handleChange}
+                name="newPassword"
+                onChange={onChangeHandler}
+                value={formData.newPassword}
               />
             </div>
+            <span className="non-valid">{formError.newPassword}</span>
             <div className="Re-enterPassword">
               <input
                 type="password"
-                className="NPREInput"
+                className="NewPREInput"
                 placeholder="Re-Enter Password"
-                onChange={handleChange}
+                name="reenterpassword"
+                onChange={onChangeHandler}
+                value={formData.reenterpassword}
               />
             </div>
+            <span className="non-valid">{formError.reenterpassword}</span>
             <div className="NCB">
-              <button
-                className="NCBS"
-                onClick={handleSubmit}
-                type="submit"
-                value="Login"
-              >
+              <button className="NCBS" type="submit" value="Login">
                 Submit
               </button>
             </div>

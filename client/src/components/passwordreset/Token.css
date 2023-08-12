@@ -36,6 +36,7 @@
   font-weight: 400;
   top: 75px;
   left: 100px;
+  line-height: 38px;
 }
 .NCT3 {
   position: absolute;
@@ -99,7 +100,7 @@
   margin: 10px 5px 10px 5px;
   border: 1px solid gray;
   border-radius: 100px;
-  color: #cacaca;
+  color: #141212;
   top: 0%;
   width: 480px;
 }
@@ -113,7 +114,7 @@
   margin: 10px 5px 10px 5px;
   border: 1px solid gray;
   border-radius: 100px;
-  color: #cacaca;
+  color: #141212;
   width: 480px;
 }
 .InputFormNC {
@@ -122,6 +123,7 @@
   justify-content: center;
   flex-direction: column;
   margin-top: auto;
+  color: #141212;
 }
 .TB {
   top: 300px;
