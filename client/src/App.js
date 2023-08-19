@@ -9,8 +9,9 @@ import DemoComponent from './common/Demo/DemoComponent'
 import SentLink from './components/passwordreset/SentLink'
 import ResentLink from './components/passwordreset/ResentLink'
 import LinkExpired from './components/passwordreset/LinkExpired'
-import NewCredentials from './components/passwordreset/NewCredentials'
+import NewCredential from './components/passwordreset/NewCredential'
 import Token from './components/passwordreset/Token'
+import HomePage from './components/HomePage'
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/newcredentials',
-    element: <NewCredentials />,
+    element: <NewCredential />,
   },
   {
     path: '/token',
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: '*',
     element: <PageNotFound />,
+  },
+  {
+    path: '/homepage',
+    element: <HomePage />,
   },
   {
     path: '/demo',

@@ -1,66 +1,80 @@
 import React, { useState, useEffect } from 'react'
-import '../passwordreset/NewCredentials.css'
 import RightStar from '../../common/rightstar/RightStar'
 import Vdst from '../../common/vdst/Vdst'
 import Rememberme from '../../common/rememberme/Rememberme'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
+import { NewcredentialsSchema } from '../../schemas/NewcredentialsSchema'
+import { useFormik } from 'formik'
+import { basic_eye } from 'react-icons-kit/linea/basic_eye'
+import { basic_eye_closed } from 'react-icons-kit/linea/basic_eye_closed'
+import { circle_ok } from 'react-icons-kit/ikons/circle_ok'
+import { circle_delete } from 'react-icons-kit/ikons/circle_delete'
+import { view } from 'react-icons-kit/ikons/view'
+import { view_off } from 'react-icons-kit/ikons/view_off'
+import { Icon } from 'react-icons-kit'
+
+const initialValues = {
+  newPassword: '',
+  reenterPassword: '',
+}
 
 const NewCredentials = () => {
-  const [formData, setFormData] = useState({
-    newPassword: '',
-    reenterpassword: '',
-  })
-  const [formError, setFormError] = useState({})
+  const [type, setType] = useState('password')
+  // const [formData, setFormData] = useState({
+  //   newPassword: '',
+  //   reenterpassword: '',
+  // })
+  // const [formError, setFormError] = useState({})
 
-  const onChangeHandler = (event) => {
-    console.log(event)
-    if (event.target.name === 'languages') {
-      let copy = { ...formData }
+  // const onChangeHandler = (event) => {
+  //   console.log(event)
+  //   if (event.target.name === 'languages') {
+  //     let copy = { ...formData }
 
-      if (event.target.checked) {
-        copy.languages.push(event.target.value)
-      } else {
-        copy.languages = copy.languages.filter(
-          (el) => el !== event.target.value
-        )
-      }
+  //     if (event.target.checked) {
+  //       copy.languages.push(event.target.value)
+  //     } else {
+  //       copy.languages = copy.languages.filter(
+  //         (el) => el !== event.target.value
+  //       )
+  //     }
 
-      setFormData(copy)
-    } else {
-      setFormData(() => ({
-        ...formData,
-        [event.target.name]: event.target.value,
-      }))
-    }
-  }
+  //     setFormData(copy)
+  //   } else {
+  //     setFormData(() => ({
+  //       ...formData,
+  //       [event.target.name]: event.target.value,
+  //     }))
+  //   }
+  // }
 
-  const validateForm = () => {
-    let err = {}
-    if (
-      formData.newPasswordpassword === '' ||
-      formData.reenterpassword === ''
-    ) {
-      err.newPassword = 'Password and Confirm Password required!'
-    } else {
-      if (formData.newPassword !== formData.reenterpassword) {
-        err.reenterpassword = 'Password not matched!'
-      } else {
-        if (formData.newPassword.length < 6) {
-          err.newPassword = 'Password should greater than 6 characters!'
-        }
-        let regex =
-          /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/
-        if (!regex.test(formData.newPassword)) {
-          err.password = 'password not valid!'
-        }
-      }
-    }
+  // const validateForm = () => {
+  //   let err = {}
+  //   if (
+  //     formData.newPasswordpassword === '' ||
+  //     formData.reenterpassword === ''
+  //   ) {
+  //     err.newPassword = 'Password and Confirm Password required!'
+  //   } else {
+  //     if (formData.newPassword !== formData.reenterpassword) {
+  //       err.reenterpassword = 'Password not matched!'
+  //     } else {
+  //       if (formData.newPassword.length < 6) {
+  //         err.newPassword = 'Password should greater than 6 characters!'
+  //       }
+  //       let regex =
+  //         /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/
+  //       if (!regex.test(formData.newPassword)) {
+  //         err.password = 'password not valid!'
+  //       }
+  //     }
+  //   }
 
-    setFormError({ ...err })
+  //   setFormError({ ...err })
 
-    return Object.keys(err).length < 1
-  }
+  //   return Object.keys(err).length < 1
+  // }
 
   // const handleChange = ({ target }) => {
   //   const { name, value } = target
@@ -90,19 +104,47 @@ const NewCredentials = () => {
   //     return { error: error.message || error }
   //   }
   // }
-  const onSubmitHandlerNC = (event) => {
-    event.preventDefault()
-    console.log('Form Data:', formData)
-    let isValid = validateForm()
+  // const onSubmitHandlerNC = (event) => {
+  //   event.preventDefault()
+  //   console.log('Form Data:', formData)
+  //   let isValid = validateForm()
 
-    if (isValid) {
-      alert('Submitted')
-      //API call to server
-    } else {
-      alert('In-Valid Form')
-    }
-    console.log(isValid)
-  }
+  //   if (isValid) {
+  //     alert('Submitted')
+  //     //API call to server
+  //   } else {
+  //     alert('In-Valid Form')
+  //   }
+  //   console.log(isValid)
+  // }
+
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues,
+      validationSchema: NewcredentialsSchema,
+      validateOnChange: true,
+      validateOnBlur: false,
+      onSubmit: (values, action) => {
+        action.resetForm()
+        // fetch('http://localhost:8002/api/user/signIn', {
+        //   method: 'POST',
+        //   headers: {
+        //     'content-type': 'application/json',
+        //     Accept: 'application/json',
+        //   },
+        //   body: JSON.stringify(values),
+        // })
+        //   .then((res) => {
+        //     if (res.status === 200) {
+        //       alert('Successfully Signed In')
+        //       // navigate('/success')
+        //     } else alert('email or password wrong')
+        //   })
+        //   .catch((err) => {
+        //     alert(err.response.data.error.message)
+        //   })
+      },
+    })
 
   return (
     <div className="NewCredentials">
@@ -118,29 +160,46 @@ const NewCredentials = () => {
           <h6 className="NCT6">special character</h6>
         </div>
         <div className="NCForm">
-          <form className="InputFormNC" onSubmit={onSubmitHandlerNC}>
+          <form className="InputFormNC" onSubmit={handleSubmit}>
             <div className="NewPassword">
               <input
                 className="NewPInput"
-                type="password"
+                type={type}
+                onChange={(e) => handleChange(e.target.value)}
                 placeholder="New password"
                 name="newPassword"
-                onChange={onChangeHandler}
-                value={formData.newPassword}
+                value={values.newPassword}
+                onBlur={handleBlur}
               />
+              {type === 'password' ? (
+                <span className="icon-span" onClick={() => setType('text')}>
+                  <Icon icon={view_off} size={18} />
+                </span>
+              ) : (
+                <span className="icon-span" onClick={() => setType('password')}>
+                  <Icon icon={view} size={18} />
+                </span>
+              )}
+              {errors.newPassword && touched.newPassword ? (
+                <p className="form-error">{errors.newPassword}</p>
+              ) : null}
             </div>
-            <span className="non-valid">{formError.newPassword}</span>
+            {/* <span className="non-valid">{formError.newPassword}</span> */}
             <div className="Re-enterPassword">
               <input
                 type="password"
                 className="NewPREInput"
                 placeholder="Re-Enter Password"
-                name="reenterpassword"
-                onChange={onChangeHandler}
-                value={formData.reenterpassword}
+                name="reenterPassword"
+                value={values.reenterPassword}
+                onChange={handleChange}
+                onBlur={handleBlur}
               />
+              {errors.reenterPassword && touched.reenterPassword ? (
+                <p className="form-error">{errors.reenterPassword}</p>
+              ) : null}
             </div>
-            <span className="non-valid">{formError.reenterpassword}</span>
+            {/* <span className="non-valid">{formError.reenterpassword}</span> */}
             <div className="NCB">
               <button className="NCBS" type="submit" value="Login">
                 Submit

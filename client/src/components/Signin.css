@@ -157,14 +157,31 @@ input {
 .SIF {
   margin-top: auto;
 }
-.checkbox {
-  color: #141212;
-}
-.RM {
+.Checkbox {
+  font-family: Inter;
   font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
   margin-top: 5%;
   position: relative;
+}
+.RM {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000;
+  margin-top: 5%;
+  position: relative;
+}
+.label {
   color: #141212;
+  font-size: 14px;
 }
 .B {
   border: hidden;
@@ -237,4 +254,8 @@ input {
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
+}
+.form-error {
+  font-size: 1rem;
+  color: #b22b27;
 }

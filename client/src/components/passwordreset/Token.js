@@ -103,22 +103,22 @@ const Token = () => {
 
   return (
     <div className="Token">
-      <div className="NCLeft">
-        <div className="NCText">
-          <h1 className="NCT1">New Credentials</h1>
-          <h6 className="NCT2">Password must be at least 8 characters long.</h6>
-          <h6 className="NCT3">
+      <div className="TLeft">
+        <div className="TText">
+          <h1 className="TT1">New Credentials</h1>
+          <h6 className="TT2">Password must be at least 8 characters long.</h6>
+          <h6 className="TT3">
             Password must contain at least one upper case.
           </h6>
-          <h6 className="NCT4">One lower case letter.</h6>
-          <h6 className="NCT5">Password must contain at least one number or</h6>
-          <h6 className="NCT6">special character</h6>
+          <h6 className="TT4">One lower case letter.</h6>
+          <h6 className="TT5">Password must contain at least one number or</h6>
+          <h6 className="TT6">special character</h6>
         </div>
-        <div className="NCForm">
-          <form className="InputFormNC">
+        <div className="TForm">
+          <form className="InputFormT">
             <div className="NewPassword">
               <input
-                className="NPInput"
+                className="TInput"
                 type="text"
                 placeholder="Token"
                 onChange={handletToken}
@@ -127,7 +127,7 @@ const Token = () => {
             <div className="Re-enterPassword">
               <input
                 type="email"
-                className="NPREInput"
+                className="TInput"
                 placeholder="User Id"
                 onChange={handletTuserId}
               />
@@ -135,7 +135,7 @@ const Token = () => {
             <div className="Re-enterPassword">
               <input
                 type="password"
-                className="NPREInput"
+                className="TInput"
                 placeholder="Enter Password"
                 onChange={handleTPassword}
               />
@@ -158,7 +158,7 @@ const Token = () => {
           </form>
         </div>
       </div>
-      <div className="NCRight">
+      <div className="TRight">
         <RightStar></RightStar>
         <Vdst></Vdst>
         <Rememberme></Rememberme>

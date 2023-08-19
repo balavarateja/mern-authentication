@@ -100,15 +100,15 @@ body {
   background: #d2cbd2;
   border-radius: 50px;
 }
-span {
+/* span {
   font-size: 12px;
   padding: 3px;
   color: red;
 
-  /* display: none; */
-}
+} */
 .non-valid {
-  color: red;
+  color: #ff0000;
   font-size: 16px;
-  padding: 3px;
+  font-family: 'Inter';
+  font-style: normal;
 }

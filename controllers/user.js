@@ -51,6 +51,28 @@ exports.createUser = async (req, res) => {
   res.status(201).json({ user: newUser })
 }
 
+exports.signIn = async (req, res) => {
+  const { email, password } = req.body
+
+  if (!email.trim() || !password.trim())
+    return sendError(res, 'email or password missing!')
+
+  const user = await User.findOne({ email })
+  if (!user) return sendError(res, 'user not found')
+
+  const isMatched = await user.comparePassword(password)
+  if (!isMatched) return sendError(res, 'email/password do not match')
+
+  // const token = jwt.sign({ userID: user._id }, process.env.JWT_SECRET, {
+  //   expiresIn: '1d',
+  // })
+
+  res.json({
+    success: true,
+    user: { name: user.name, email: user.email, id: user._id },
+  })
+}
+
 exports.verifyEmail = async (req, res) => {
   const { userId, OTP } = req.body
 
@@ -180,12 +202,12 @@ exports.resetPassword = async (req, res) => {
 
   const user = await User.findById(userId)
   console.log('user', user)
-  // const matched = await user.comparePassword(newPassword)
-  // if (matched)
-  //   return sendError(
-  //     res,
-  //     'The new password must be different from the old one!'
-  //   )
+  const matched = await user.comparePassword(newPassword)
+  if (matched)
+    return sendError(
+      res,
+      'The new password must be different from the old one!'
+    )
 
   user.password = newPassword
   await user.save()

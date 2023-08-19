@@ -2,26 +2,26 @@
   width: 100%;
   height: 100%;
 }
-.NCLeft {
+.TLeft {
   position: absolute;
   left: 0%;
   top: 0%;
   height: 100%;
   width: 50%;
 }
-.NCRight {
+.TRight {
   position: absolute;
   left: 50%;
   top: 0;
   height: 100%;
   width: 50%;
 }
-.NCText {
+.TText {
   position: relative;
   width: 100%;
   height: 40%;
 }
-.NCT1 {
+.TT1 {
   position: absolute;
   font-family: Inter;
   font-size: 40px;
@@ -29,7 +29,7 @@
   top: 50px;
   left: 180px;
 }
-.NCT2 {
+.TT2 {
   position: absolute;
   font-family: Inter;
   font-size: 28px;
@@ -38,7 +38,7 @@
   left: 100px;
   line-height: 38px;
 }
-.NCT3 {
+.TT3 {
   position: absolute;
   font-family: Inter;
   font-size: 28px;
@@ -46,7 +46,7 @@
   top: 105px;
   left: 100px;
 }
-.NCT4 {
+.TT4 {
   position: absolute;
   font-family: Inter;
   font-size: 28px;
@@ -54,7 +54,7 @@
   top: 135px;
   left: 100px;
 }
-.NCT5 {
+.TT5 {
   position: absolute;
   font-family: Inter;
   font-size: 28px;
@@ -62,7 +62,7 @@
   top: 165px;
   left: 100px;
 }
-.NCT6 {
+.TT6 {
   position: absolute;
   font-family: Inter;
   font-size: 28px;
@@ -90,7 +90,7 @@
   line-height: 29px;
   color: #cacaca;
 } */
-.NPInput {
+.TInput {
   padding: 15px;
   font-family: 'Inter';
   font-style: normal;
@@ -104,7 +104,7 @@
   top: 0%;
   width: 480px;
 }
-.NPREInput {
+.TInput {
   padding: 15px;
   font-family: 'Inter';
   font-style: normal;
@@ -117,7 +117,7 @@
   color: #141212;
   width: 480px;
 }
-.InputFormNC {
+.InputFormT {
   display: flex;
   align-items: center;
   justify-content: center;

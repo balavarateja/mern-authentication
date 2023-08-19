@@ -6,7 +6,7 @@ const Forgottext = (props) => {
   return (
     <>
       <div className="text1">
-        <h4>Forgot Password </h4>
+        <h3>Forgot Password </h3>
       </div>
 
       <div className="text2">
